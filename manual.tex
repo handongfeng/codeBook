@@ -1,0 +1,87 @@
+\documentclass[]{report}
+
+% Define page
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\linespread{1.1}
+
+% For math
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{bm}
+
+% For figures
+\usepackage{graphicx,subfigure,psfrag,epsfig}
+\usepackage{pifont}% for symbol cross
+
+\graphicspath{{images/}}
+
+% Url's and clickable pdf
+\usepackage[dvips,breaklinks,bookmarks,bookmarksnumbered]{hyperref}
+\hypersetup{
+  pdftitle={elastix, the manual},
+  pdfauthor={Stefan Klein and Marius Staring},
+  colorlinks={true},      % false: boxed links; true: colored links
+  linkcolor=red,          % color of internal links
+  citecolor=green,        % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=cyan           % color of external links
+}
+\usepackage{url,breakurl}
+
+\usepackage{natbib}
+\usepackage{ctable}
+
+% Definitions
+\newcommand{\elastix}{\texttt{elastix}}
+\newcommand{\transformix}{\texttt{transformix}}
+\newcommand{\etal}{\emph{et al.}}
+\newcommand{\vx}{\bm{x}}
+\newcommand{\vxt}[1][]{\bm{\widetilde x}_{#1}}
+\newcommand{\vu}{\bm{u}}
+\newcommand{\vux}{\bm{u}(\bm{x})}
+\newcommand{\vmu}{\bm{\mu}}
+\newcommand{\vT}{\bm{T}}
+\newcommand{\vTm}{\bm{T}_{\vmu}}
+\newcommand{\vTmx}{\bm{T}_{\vmu}(\bm{x})}
+\newcommand{\CC}{\mathcal{C}}
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Sim}{\mathcal{S}}
+\newcommand{\Pen}{\mathcal{P}}
+\newcommand{\D}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\Dd}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+
+% see page474 latex manual:
+\newcommand\relphantom[1]{\mathrel{\phantom{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{\includegraphics[width=8cm]{elastixLogo.eps}\\\vspace{1cm}the manual\vspace{1cm}}
+\author{Stefan Klein and Marius Staring}
+%\date{}
+\maketitle
+
+\setcounter{page}{1} \pagenumbering{roman} \tableofcontents
+%\newpage
+%\listoffigures
+%\newpage
+%\listoftables
+\newpage
+\pagenumbering{arabic} \setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% main text
+
+
+
+%\include{chapArrayList}
+\include{chapArrayList}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\pagestyle{plain} \addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{plainnat}
+\bibliography{IEEEabrv,manual}
+
+\end{document}

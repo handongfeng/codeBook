@@ -1,0 +1,105 @@
+\chapter{Ayyay and List}\label{chp:ArrayList}
+
+\section{Reverse Link List}
+
+\begin{quote}
+\begin{verbatim}
+%#include "elastixlib.h"
+%#include "itkParameterFileParser.h"
+/**
+ * node struct
+ * struct Node
+ * {
+ *  Node* next;
+ *  int val;
+ *  Node(_int val): val(val),next(0){}
+ * };
+ */
+
+Node* reverse(Node* p)
+{
+  if ( !p ||!p->next )
+      return p;
+  
+  Node * dummy = new Node(-1);
+  Node* head = dummy;
+  head->next = p;
+  Node* pre = head;
+  Node* cur = p;
+  Node* next = p->next;
+  while(next)
+  {
+    cur->next = pre;
+    pre = cur;
+    next = next->next;
+  }
+  head = dummy->next;
+  delete dummy;
+  rereutn head;
+
+}
+file_parser->SetParameterFileName( "par_registration.txt" );
+try
+{
+  file_parser->ReadParameterFile();
+}
+catch( itk::ExceptionObject & e )
+{
+  std::cout << e.what() << std::endl;
+  // Do some error handling!
+}
+
+\end{verbatim}
+\end{quote}
+
+
+
+\begin{quote}
+\begin{verbatim}
+%#include "elastixlib.h"
+%#include "itkParameterFileParser.h"
+/**
+ * node struct
+ * struct Node
+ * {
+ *  Node* next;
+ *  int val;
+ *  Node(_int val): val(val),next(0){}
+ * };
+ */
+
+Node* reverse(Node* p)
+{
+  if ( !p ||!p->next )
+      return p;
+  
+  Node * dummy = new Node(-1);
+  Node* head = dummy;
+  head->next = p;
+  Node* pre = head;
+  Node* cur = p;
+  Node* next = p->next;
+  while(next)
+  {
+    cur->next = pre;
+    pre = cur;
+    next = next->next;
+  }
+  head = dummy->next;
+  delete dummy;
+  rereutn head;
+
+}
+file_parser->SetParameterFileName( "par_registration.txt" );
+try
+{
+  file_parser->ReadParameterFile();
+}
+catch( itk::ExceptionObject & e )
+{
+  std::cout << e.what() << std::endl;
+  // Do some error handling!
+}
+
+\end{verbatim}
+\end{quote}

@@ -1,0 +1,62 @@
+\chapter{Brute Force Search}\label{chp:BruteForce}
+
+\section{Subsets}
+
+
+Given a set of distinct integers, S, return all possible subsets.
+
+Note:
+Elements in a subset must be in non-descending order.
+The solution set must not contain duplicate subsets.
+For example,
+If $S = [1,2,3]$, a solution is:
+
+\newline
+\{\newline
+  [3],\newline
+  [1],\newline
+  [2],\newline
+  [1,2,3],\newline
+  [1,3],\newline
+  [2,3],\newline
+  [1,2],\newline
+  [ ]\newline
+\}\newline
+
+
+
+
+Analysis: total number is $2^n$, where $n$ is the number of array.
+Note, in this problem, we assume all the numbers are unique, no duplicated numbers.
+So, it should in the range of $0$ to $2^n-1$.
+For each position, we use binay number $0$ to denote that the number in this position is not selected. $1$ means the number is selected.
+For example, $x= 0 1 0$ means the second nuber is selected. we use $x \& 1<<2$ to get the which number is secected, where 2 is in the loop $i$ in 0 to $n$, when $i=2$ we get the true for the statement if $ (x \& 1<<2)$.
+
+I think this problem is very interesting and makes a trick to use bit operation. So, please think it carfully and make sure you totally understand the natural of this problem.
+
+\begin{quote}
+\begin{verbatim}
+
+class Solution {
+public:
+    vector< vector<int> > subsets(vector<int>& numbers) {
+        vector< vector<int> > result;
+        sort(numbers.begin(), numbers.end());
+        // Loop from 0 to 2^n - 1
+        for (int x = 0; x < (1 << numbers.size()); ++x) {
+            vector<int> sln;
+            for (int i = 0; i < numbers.size(); ++i)
+                // If the i-th least significant bit is 1, then choose
+                // the i-th integer
+                if (x & (1 << i))
+                    sln.push_back(numbers[i]);
+            result.push_back(sln);
+        }
+        return result;
+    }
+};
+
+
+
+\end{verbatim}
+\end{quote}

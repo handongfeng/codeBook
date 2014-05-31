@@ -1,0 +1,121 @@
+\chapter{Ayyay and List}\label{chp:ArrayList}
+
+\section{Reverse Link List}
+
+\begin{quote}
+\begin{verbatim}
+%#include "elastixlib.h"
+%#include "itkParameterFileParser.h"
+/**
+ * node struct
+ * struct Node
+ * {
+ *  Node* next;
+ *  int val;
+ *  Node(_int val): val(val),next(0){}
+ * };
+ */
+
+Node* reverse(Node* p)
+{
+  if ( !p ||!p->next )
+      return p;
+  
+  Node * dummy = new Node(-1);
+  Node* head = dummy;
+  head->next = p;
+  Node* pre = head;
+  Node* cur = p;
+  Node* next = p->next;
+  while(next)
+  {
+    cur->next = pre;
+    pre = cur;
+    next = next->next;
+  }
+  head = dummy->next;
+  delete dummy;
+  rereutn head;
+
+}
+file_parser->SetParameterFileName( "par_registration.txt" );
+try
+{
+  file_parser->ReadParameterFile();
+}
+catch( itk::ExceptionObject & e )
+{
+  std::cout << e.what() << std::endl;
+  // Do some error handling!
+}
+
+\end{verbatim}
+\end{quote}
+
+
+
+\section{Get the Middle node in Single Linked List}
+
+\begin{quote}
+\begin{verbatim}
+/**
+ * node struct
+ * struct Node
+ * {
+ *  Node* next;
+ *  int val;
+ *  Node(_int val): val(val),next(0){}
+ * };
+ */
+
+// using two pinters, fast and slow pointers to get the middle node
+Node* middle(Node* head)
+{
+  if ( !head ||!head->next )
+      return p;
+  
+  Node * slow = head;
+  Node * fast = head;
+  while(fast->next && fast->next->next)
+  {
+    fast = fast->next->next;
+    slow = slow->next;  
+  }
+  return slow;
+}
+
+\end{verbatim}
+\end{quote}
+
+
+
+
+\section{Sort Color}
+
+This is a very interesting algorithm, using two pointers to jiabi.
+
+\begin{quote}
+\begin{verbatim}
+
+// using two pinters to Jiabi
+void sortColors(int A[], int n) 
+{
+	//red is begin from beginning, blue begin from end
+	int red = 0, blue = n - 1;
+	for(int i=0;i<n;++i)
+	{
+		if(A[i]==0)
+		{
+			 swap(A[i],A[red]);
+			 red++;
+		}
+		else if(A[i]==2)
+		{
+			swap(A[i],A[blue]);
+			 blue--;
+		}
+	}
+}
+
+\end{verbatim}
+\end{quote}
